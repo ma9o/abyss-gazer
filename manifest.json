@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+  "name": "My Extension",
+  "version": "0.0.1",
+
+  "default_locale": "en",
+  "description": "Assemble a word cloud of your internet travels.",
+
+  "permissions": [
+    "tabs",
+    "https://*",
+    "http://*",
+    "unlimitedStorage",
+    "desktopCapture"
+  ],
+
+  "chrome_url_overrides": {
+    "newtab": "html/results.html"
+  },
+
+  "background": {
+    "scripts": ["js/background.js"],
+    "persistent": false
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*"],
+      "js": ["js/content.js"]
+    }
+  ]
+}
